@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PrimeCalculationTests.cs" />
+    <Compile Include="HashcodeFactorCalculationTests.cs" />
     <Compile Include="SquareCalculationTests.cs" />
   </ItemGroup>
   <ItemGroup>
