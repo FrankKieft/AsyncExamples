@@ -5,9 +5,11 @@ VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{2DECCB0C-AC8D-4A46-BBFE-516CCE83D4F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{06CB4574-37AD-44FB-893C-1AF3750E3193}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{06CB4574-37AD-44FB-893C-1AF3750E3193}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainTests", "DomainTests\DomainTests.csproj", "{FB91DA71-5DA9-43CB-92D8-7FCC4D41E54D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forms", "Forms\Forms.csproj", "{4A4B339D-CAE3-448F-9BEA-315C9625B534}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{FB91DA71-5DA9-43CB-92D8-7FCC4D41E54D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB91DA71-5DA9-43CB-92D8-7FCC4D41E54D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB91DA71-5DA9-43CB-92D8-7FCC4D41E54D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A4B339D-CAE3-448F-9BEA-315C9625B534}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A4B339D-CAE3-448F-9BEA-315C9625B534}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A4B339D-CAE3-448F-9BEA-315C9625B534}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A4B339D-CAE3-448F-9BEA-315C9625B534}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

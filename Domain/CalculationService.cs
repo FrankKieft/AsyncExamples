@@ -20,7 +20,6 @@ namespace AsyncExamples.Domain
                 new Sha256HashFactorCalculator(),
                 new PrimeCalculator(),
                 new Md5HashFactorCalculator(),
-                new Md5HashFactorCalculator()
             };
         }
 
