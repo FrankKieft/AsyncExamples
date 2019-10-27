@@ -6393,7 +6393,7 @@ function getWidthOrHeight( elem, dimension, extra ) {
 			valueIsBorderBox,
 			styles,
 
-			// Provide the current computed size to request scroll gutter calculation (gh-3589)
+			// Provide the current computed size to request scroll gutter Calculator (gh-3589)
 			val
 		)
 	) + "px";

@@ -2001,14 +2001,14 @@ intellisense.annotate(jQuery.fn, {
   'outerHeight': function() {
     /// <signature>
     ///   <summary>Get the current computed height for the first element in the set of matched elements, including padding, border, and optionally margin. Returns an integer (without "px") representation of the value or null if called on an empty set of elements.</summary>
-    ///   <param name="includeMargin" type="Boolean">A Boolean indicating whether to include the element's margin in the calculation.</param>
+    ///   <param name="includeMargin" type="Boolean">A Boolean indicating whether to include the element's margin in the Calculator.</param>
     ///   <returns type="Number" />
     /// </signature>
   },
   'outerWidth': function() {
     /// <signature>
     ///   <summary>Get the current computed width for the first element in the set of matched elements, including padding and border.</summary>
-    ///   <param name="includeMargin" type="Boolean">A Boolean indicating whether to include the element's margin in the calculation.</param>
+    ///   <param name="includeMargin" type="Boolean">A Boolean indicating whether to include the element's margin in the Calculator.</param>
     ///   <returns type="Number" />
     /// </signature>
   },
