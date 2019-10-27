@@ -22,3 +22,15 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+.calculation-x {
+    width: 64px;
+    text-align: center;
+    height: 34px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555555;
+    background-color: lightyellow;
+    background-image: none;
+}

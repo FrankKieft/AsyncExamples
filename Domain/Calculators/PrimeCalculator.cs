@@ -24,7 +24,7 @@ namespace AsyncExamples.Domain.Calculators
                 Result = y,
                 Name = GetType().Name,
                 MilliSeconds = (DateTime.Now - t).TotalMilliseconds,
-                Thread = Thread.CurrentThread.Name
+                ThreadId = Thread.CurrentThread.ManagedThreadId
             });
         }
         

@@ -10,5 +10,8 @@ namespace AsyncExamples.Domain.Utils
         }
 
         public List<CalculationLogItem> Items { get; }
+        public double MilliSeconds { get; internal set; }
+        public int EndThreadId { get; internal set; }
+        public int StartThreadId { get; internal set; }
     }
 }

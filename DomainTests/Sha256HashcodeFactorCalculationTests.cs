@@ -7,20 +7,20 @@ using System.Linq;
 namespace AsyncExamples.DomainTests
 {
     [TestClass]
-    public class HashcodeFactorCalculationTests
+    public class Sha256HashcodeFactorCalculationTests
     {
         [TestMethod]
-        public void TheHashcodeFactorOf25Is1234()
+        public void TheHashcodeFactorOf25Is1234ToMakeTheHashEndOn0000()
         {
             // Arrange
-            var calculator = new HashFactorCalculator();
+            var calculator = new Sha256HashFactorCalculator();
             var log = new CalculationLog();
 
             // Act
             calculator.Calculate(25, log);
 
             // Assert
-            log.Items.Single().Result.Should().Be(13638);
+            log.Items.Single().Result.Should().Be(1494000);
         }
     }
 }

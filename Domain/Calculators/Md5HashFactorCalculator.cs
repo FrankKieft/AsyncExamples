@@ -6,18 +6,17 @@ using System.Threading;
 
 namespace AsyncExamples.Domain.Calculators
 {
-    public class HashFactorCalculator : Calculator
+    public class Md5HashFactorCalculator : Calculator
     {
         public override void Calculate(int x, CalculationLog log)
         {
             var t = DateTime.Now;
             var y = 0;
 
-            using (SHA256 sha256Hash = SHA256.Create())
+            using (MD5 md5 = MD5.Create())
             {
-                while (!IsFactor(x, ++y, sha256Hash))
+                while (!IsFactor(x, ++y, md5))
                 {
-
                 }
             }
 
@@ -26,21 +25,21 @@ namespace AsyncExamples.Domain.Calculators
                 Result = y,
                 Name = GetType().Name,
                 MilliSeconds = (DateTime.Now - t).TotalMilliseconds,
-                Thread = Thread.CurrentThread.Name
+                ThreadId = Thread.CurrentThread.ManagedThreadId
             });
         }
 
-        private bool IsFactor(int x, int y, SHA256 sha256Hash)
+        private bool IsFactor(int x, int y, MD5 md5)
         {
-            byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(x.ToString() + y.ToString()));
+            byte[] inputBytes = Encoding.ASCII.GetBytes($"({x},{y})");
+            byte[] hash = md5.ComputeHash(inputBytes);
 
-            StringBuilder builder = new StringBuilder();
-            for (int i = 0; i < bytes.Length; i++)
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < hash.Length; i++)
             {
-                builder.Append(bytes[i].ToString("x2"));
+                sb.Append(hash[i].ToString("X2"));
             }
-
-            return builder.ToString().EndsWith("0000");
+            return sb.ToString().EndsWith("00000");
         }
     }
 }
