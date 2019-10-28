@@ -17,7 +17,6 @@ namespace AsyncExamples.Web.Models
 
         public CalculationLogModel(CalculationLog log, int number, string method, int threadId) :this(number)
         {
-            var i = 0;
             ControllerStartThreadId = Thread.CurrentThread.ManagedThreadId;
             ControllerEndThreadId = Thread.CurrentThread.ManagedThreadId;
             EndThreadId = log.EndThreadId;
@@ -26,7 +25,7 @@ namespace AsyncExamples.Web.Models
             Items = new List<CalculationLogItemModel>();
             log.Items.ForEach(x => Items.Add(new CalculationLogItemModel
             {
-                Number = ++i,
+                Number = x.Number,
                 MilliSeconds = x.MilliSeconds,
                 Result = x.Result,
                 ThreadId = x.ThreadId,

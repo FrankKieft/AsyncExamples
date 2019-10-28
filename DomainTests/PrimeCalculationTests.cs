@@ -13,7 +13,7 @@ namespace AsyncExamples.DomainTests
         public void TheFifthPrimeIs11()
         {
             // Arrange
-            var calculator = new PrimeCalculator();
+            var calculator = new PrimeCalculator(1);
             var log = new CalculationLog();
 
             // Act
@@ -26,7 +26,7 @@ namespace AsyncExamples.DomainTests
         public void TheNighntPrimeIs23()
         {
             // Arrange
-            var calculator = new PrimeCalculator();
+            var calculator = new PrimeCalculator(1);
             var log = new CalculationLog();
 
             // Act
@@ -40,7 +40,7 @@ namespace AsyncExamples.DomainTests
         public void TheFirstPrimeIs2()
         {
             // Arrange
-            var calculator = new PrimeCalculator();
+            var calculator = new PrimeCalculator(1);
             var log = new CalculationLog();
 
             // Act

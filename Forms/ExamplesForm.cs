@@ -1,7 +1,7 @@
 ﻿using AsyncExamples.Domain;
 using AsyncExamples.Domain.Utils;
 using System;
-using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -9,64 +9,92 @@ namespace AsyncExamples.Forms
 {
     public partial class ExamplesForm : Form
     {
+        private int _count = 0;
+        private CalculationService _service;
+
         public ExamplesForm()
         {
+            _service = new CalculationService();
             InitializeComponent();
         }
 
         private void SyncButton_Click(object sender, EventArgs e)
         {
-            SyncTextbox.Lines = new[] { "In progress..." };
+            var n = ++_count;
 
-            var threadId = Thread.CurrentThread.ManagedThreadId;
-            var service = new CalculationService();
-            var log = service.Calculate(Convert.ToInt32(NumberTextBox.Text));
+            LogStart(SyncButton.Text, n);
 
-            SyncTextbox.Lines = GetText(SyncButton.Text, log, threadId);
+            var log = _service.Calculate(Convert.ToInt32(NumberTextBox.Text));
+
+            LogEnd(SyncButton.Text, log, n);
         }
 
         private async void ASyncButton_Click(object sender, EventArgs e)
         {
-            AsyncTextBox.Lines = new[] { "In progress..." };
+            var n = ++_count;
 
-            var threadId = Thread.CurrentThread.ManagedThreadId;
-            var service = new CalculationService();
-            var log = await service.AsyncCalculate(Convert.ToInt32(NumberTextBox.Text));
+            LogStart(AsyncButton.Text, n);
 
-            AsyncTextBox.Lines = GetText(AsyncButton.Text, log, threadId);
+            var log = await _service.AsyncCalculate(Convert.ToInt32(NumberTextBox.Text));
+
+            LogEnd(AsyncButton.Text, log, n);
         }
 
         private async void AsyncWithTaskButton_Click(object sender, EventArgs e)
         {
-            AsyncWithTaskTextBox.Lines = new[] { "In progress..." };
+            var n = ++_count;
 
-            var threadId = Thread.CurrentThread.ManagedThreadId;
-            var service = new CalculationService();
-            var log = await service.AsyncWithTaskCalculate(Convert.ToInt32(NumberTextBox.Text));
+            LogStart(AsyncWithTaskButton.Text, n);
 
-            AsyncWithTaskTextBox.Lines = GetText(AsyncWithTaskButton.Text, log, threadId);
+            var log = await _service.AsyncWithTaskCalculate(Convert.ToInt32(NumberTextBox.Text));
+
+            LogEnd(AsyncWithTaskButton.Text, log, n);
         }
 
-        private string[] GetText(string method, CalculationLog log, int threadId)
+        private void ParallelButton_Click(object sender, EventArgs e)
         {
-            var text = new List<string>();
+            var n = ++_count;
 
-            text.Add($"---- {method} ----");
+            LogStart(ParallelButton.Text, n);
+
+            var log = _service.ParallelCalculate(Convert.ToInt32(NumberTextBox.Text));
+
+            LogEnd(ParallelButton.Text, log, n);
+        }
+
+        private void LogStart(string method, int n)
+        {
+            var text = ResultTextbox.Lines.ToList();
+
+            text.Add($" ---- START: {method} ({n}) ----");
+            text.Add($"     Form thread ID:  {Thread.CurrentThread.ManagedThreadId}");
             text.Add($"");
-            text.Add($"Form thread ID: {threadId}");
-            text.Add($"DomainService thread ID: {log.StartThreadId}");
-            text.Add($"");
+
+            ResultTextbox.Lines = text.ToArray();
+        }
+
+        private void LogEnd(string method, CalculationLog log, int n)
+        {
+            var text = ResultTextbox.Lines.ToList();
+
+            text.Add($" ---- CONTINUE: {method} ({n}) ----");
+            text.Add($"     Form thread ID:  {Thread.CurrentThread.ManagedThreadId}");
+            text.Add($"     DomainService thread ID:  {log.StartThreadId}");
             var i = 0;
             foreach(var item in log.Items)
             {
-                text.Add($"{++i}. Thread ID: {item.ThreadId}  {item.Name} ---- Result: {item.Result} ---- Elapsed time(ms): {item.MilliSeconds}");
+                text.Add($"         {++i}. Thread ID:  {(item.ThreadId.ToString()+new string(' ',2)).Substring(0,2)}   {(item.Name+new string(' ',32)).Substring(0,32)}      ({NumberTextBox.Text}) {(item.Result.ToString() + new string(' ', 12)).Substring(0,12)}{item.MilliSeconds} ms");
             }
+            text.Add($"     DomainService thread ID:  {log.EndThreadId}");
+            text.Add($"     Elapsed time (s):  {Math.Round(log.MilliSeconds/1000,2,MidpointRounding.AwayFromZero)}");
             text.Add($"");
-            text.Add($"DomainService thread ID: {log.EndThreadId}");
-            text.Add($"Form thread ID: {Thread.CurrentThread.ManagedThreadId}");
-            text.Add($"Elapsed time: {log.MilliSeconds}");
 
-            return text.ToArray();
+            ResultTextbox.Lines = text.ToArray();
+        }
+
+        private void ClearButton_Click(object sender, EventArgs e)
+        {
+            ResultTextbox.Lines = new string[] { };
         }
     }
 }

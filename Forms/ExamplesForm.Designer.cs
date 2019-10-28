@@ -29,36 +29,38 @@
         private void InitializeComponent()
         {
             this.SyncButton = new System.Windows.Forms.Button();
-            this.SyncTextbox = new System.Windows.Forms.TextBox();
+            this.ResultTextbox = new System.Windows.Forms.TextBox();
             this.NumberTextBox = new System.Windows.Forms.TextBox();
             this.Label = new System.Windows.Forms.Label();
-            this.AsyncTextBox = new System.Windows.Forms.TextBox();
             this.AsyncButton = new System.Windows.Forms.Button();
-            this.AsyncWithTaskTextBox = new System.Windows.Forms.TextBox();
             this.AsyncWithTaskButton = new System.Windows.Forms.Button();
+            this.ParallelButton = new System.Windows.Forms.Button();
+            this.ClearButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SyncButton
             // 
-            this.SyncButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SyncButton.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SyncButton.Location = new System.Drawing.Point(37, 49);
             this.SyncButton.Name = "SyncButton";
-            this.SyncButton.Size = new System.Drawing.Size(1124, 34);
+            this.SyncButton.Size = new System.Drawing.Size(193, 34);
             this.SyncButton.TabIndex = 0;
             this.SyncButton.Text = "Synchronous";
             this.SyncButton.UseVisualStyleBackColor = true;
             this.SyncButton.Click += new System.EventHandler(this.SyncButton_Click);
             // 
-            // SyncTextbox
+            // ResultTextbox
             // 
-            this.SyncTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.ResultTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.SyncTextbox.Location = new System.Drawing.Point(37, 89);
-            this.SyncTextbox.Multiline = true;
-            this.SyncTextbox.Name = "SyncTextbox";
-            this.SyncTextbox.Size = new System.Drawing.Size(1124, 200);
-            this.SyncTextbox.TabIndex = 1;
+            this.ResultTextbox.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ResultTextbox.Location = new System.Drawing.Point(37, 89);
+            this.ResultTextbox.Multiline = true;
+            this.ResultTextbox.Name = "ResultTextbox";
+            this.ResultTextbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.ResultTextbox.Size = new System.Drawing.Size(1193, 282);
+            this.ResultTextbox.TabIndex = 1;
             // 
             // NumberTextBox
             // 
@@ -66,7 +68,7 @@
             this.NumberTextBox.Name = "NumberTextBox";
             this.NumberTextBox.Size = new System.Drawing.Size(63, 20);
             this.NumberTextBox.TabIndex = 2;
-            this.NumberTextBox.Text = "24";
+            this.NumberTextBox.Text = "424";
             // 
             // Label
             // 
@@ -77,63 +79,63 @@
             this.Label.TabIndex = 3;
             this.Label.Text = "Number";
             // 
-            // AsyncTextBox
-            // 
-            this.AsyncTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.AsyncTextBox.Location = new System.Drawing.Point(37, 335);
-            this.AsyncTextBox.Multiline = true;
-            this.AsyncTextBox.Name = "AsyncTextBox";
-            this.AsyncTextBox.Size = new System.Drawing.Size(1124, 200);
-            this.AsyncTextBox.TabIndex = 5;
-            // 
             // AsyncButton
             // 
-            this.AsyncButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.AsyncButton.Location = new System.Drawing.Point(37, 295);
+            this.AsyncButton.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AsyncButton.Location = new System.Drawing.Point(236, 49);
             this.AsyncButton.Name = "AsyncButton";
-            this.AsyncButton.Size = new System.Drawing.Size(1124, 34);
+            this.AsyncButton.Size = new System.Drawing.Size(193, 34);
             this.AsyncButton.TabIndex = 4;
-            this.AsyncButton.Text = "Async (Works synchronous without tasks)";
+            this.AsyncButton.Text = "Async, no tasks";
             this.AsyncButton.UseVisualStyleBackColor = true;
             this.AsyncButton.Click += new System.EventHandler(this.ASyncButton_Click);
             // 
-            // AsyncWithTaskTextBox
-            // 
-            this.AsyncWithTaskTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.AsyncWithTaskTextBox.Location = new System.Drawing.Point(37, 581);
-            this.AsyncWithTaskTextBox.Multiline = true;
-            this.AsyncWithTaskTextBox.Name = "AsyncWithTaskTextBox";
-            this.AsyncWithTaskTextBox.Size = new System.Drawing.Size(1124, 200);
-            this.AsyncWithTaskTextBox.TabIndex = 7;
-            // 
             // AsyncWithTaskButton
             // 
-            this.AsyncWithTaskButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.AsyncWithTaskButton.Location = new System.Drawing.Point(37, 541);
+            this.AsyncWithTaskButton.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AsyncWithTaskButton.Location = new System.Drawing.Point(435, 49);
             this.AsyncWithTaskButton.Name = "AsyncWithTaskButton";
-            this.AsyncWithTaskButton.Size = new System.Drawing.Size(1124, 34);
+            this.AsyncWithTaskButton.Size = new System.Drawing.Size(193, 34);
             this.AsyncWithTaskButton.TabIndex = 6;
-            this.AsyncWithTaskButton.Text = "Async with tasks created";
+            this.AsyncWithTaskButton.Text = "Async with tasks";
             this.AsyncWithTaskButton.UseVisualStyleBackColor = true;
             this.AsyncWithTaskButton.Click += new System.EventHandler(this.AsyncWithTaskButton_Click);
+            // 
+            // ParallelButton
+            // 
+            this.ParallelButton.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ParallelButton.Location = new System.Drawing.Point(634, 49);
+            this.ParallelButton.Name = "ParallelButton";
+            this.ParallelButton.Size = new System.Drawing.Size(193, 34);
+            this.ParallelButton.TabIndex = 7;
+            this.ParallelButton.Text = "Parallel";
+            this.ParallelButton.UseVisualStyleBackColor = true;
+            this.ParallelButton.Click += new System.EventHandler(this.ParallelButton_Click);
+            // 
+            // ClearButton
+            // 
+            this.ClearButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ClearButton.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClearButton.Location = new System.Drawing.Point(1161, 12);
+            this.ClearButton.Name = "ClearButton";
+            this.ClearButton.Size = new System.Drawing.Size(69, 71);
+            this.ClearButton.TabIndex = 8;
+            this.ClearButton.Text = "Clear";
+            this.ClearButton.UseVisualStyleBackColor = true;
+            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
             // ExamplesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1191, 789);
-            this.Controls.Add(this.AsyncWithTaskTextBox);
+            this.ClientSize = new System.Drawing.Size(1277, 406);
+            this.Controls.Add(this.ClearButton);
+            this.Controls.Add(this.ParallelButton);
             this.Controls.Add(this.AsyncWithTaskButton);
-            this.Controls.Add(this.AsyncTextBox);
             this.Controls.Add(this.AsyncButton);
             this.Controls.Add(this.Label);
             this.Controls.Add(this.NumberTextBox);
-            this.Controls.Add(this.SyncTextbox);
+            this.Controls.Add(this.ResultTextbox);
             this.Controls.Add(this.SyncButton);
             this.Name = "ExamplesForm";
             this.Text = "Form1";
@@ -145,13 +147,13 @@
         #endregion
 
         private System.Windows.Forms.Button SyncButton;
-        private System.Windows.Forms.TextBox SyncTextbox;
+        private System.Windows.Forms.TextBox ResultTextbox;
         private System.Windows.Forms.TextBox NumberTextBox;
         private System.Windows.Forms.Label Label;
-        private System.Windows.Forms.TextBox AsyncTextBox;
         private System.Windows.Forms.Button AsyncButton;
-        private System.Windows.Forms.TextBox AsyncWithTaskTextBox;
         private System.Windows.Forms.Button AsyncWithTaskButton;
+        private System.Windows.Forms.Button ParallelButton;
+        private System.Windows.Forms.Button ClearButton;
     }
 }
 

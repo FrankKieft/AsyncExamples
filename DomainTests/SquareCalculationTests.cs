@@ -13,7 +13,7 @@ namespace AsyncExamples.DomainTests
         public void TheSquareOf15Is225()
         {
             // Arrange
-            var calculator = new SquareCalculator();
+            var calculator = new SquareCalculator(1);
             var log = new CalculationLog();
 
             // Act

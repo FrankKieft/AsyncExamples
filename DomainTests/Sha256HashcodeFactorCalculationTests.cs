@@ -13,7 +13,7 @@ namespace AsyncExamples.DomainTests
         public void TheHashcodeFactorOf25Is1234ToMakeTheHashEndOn0000()
         {
             // Arrange
-            var calculator = new Sha256HashFactorCalculator();
+            var calculator = new Sha256HashFactorCalculator(1);
             var log = new CalculationLog();
 
             // Act

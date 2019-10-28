@@ -6,6 +6,10 @@ namespace AsyncExamples.Domain.Calculators
 {
     public class PrimeCalculator : Calculator
     {
+        public PrimeCalculator(int number) : base(number)
+        {
+        }
+        
         public override void Calculate(int x, CalculationLog log)
         {
             var t = DateTime.Now;
@@ -21,6 +25,7 @@ namespace AsyncExamples.Domain.Calculators
 
             log.Items.Add(new CalculationLogItem
             {
+                Number = Number,
                 Result = y,
                 Name = GetType().Name,
                 MilliSeconds = (DateTime.Now - t).TotalMilliseconds,

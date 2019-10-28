@@ -13,7 +13,7 @@ namespace AsyncExamples.DomainTests
         public void TheHashcodeFactorOf25Is4153602ToMakeHashEndWith00000()
         {
             // Arrange
-            var calculator = new Md5HashFactorCalculator();
+            var calculator = new Md5HashFactorCalculator(1);
             var log = new CalculationLog();
 
             // Act

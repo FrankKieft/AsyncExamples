@@ -17,7 +17,7 @@ namespace AsyncExamples.Web.Controllers
 
         public ActionResult Index()
         {
-            var model = new CalculationLogModel(24);
+            var model = new CalculationLogModel(242);
 
             return View(model);
         }
@@ -53,6 +53,17 @@ namespace AsyncExamples.Web.Controllers
             var log = await _service.AsyncWithTaskCalculate(x);
 
             return View("Index", new CalculationLogModel(log, model.Number, "Asynchronous calculation with tasks", threadId));
+        }
+
+        [HttpPost]
+        public ActionResult ParallelCalculate(CalculationLogModel model)
+        {
+            var threadId = Thread.CurrentThread.ManagedThreadId;
+            var x = model.Number;
+
+            var log = _service.ParallelCalculate(x);
+
+            return View("Index", new CalculationLogModel(log, model.Number, "Parallel calculation", threadId));
         }
     }
 }

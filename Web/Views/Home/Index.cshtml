@@ -10,70 +10,69 @@
         @Html.TextBoxFor(m => m.Number, new { @class = "calculation-x" })
         <br />
         <br />
-        <input type="submit" value="Evaluate" onclick="document.getElementById('testForm').action = 'Calculate'" />
-        <br />
-        <br />
+        <input type="submit" value="Synchronous" onclick="document.getElementById('testForm').action = 'Calculate'" />
         <input type="submit" value="Async evaluate" onclick="document.getElementById('testForm').action = 'AsyncCalculate'" />
-        <br />
-        <br />
-        <input type="submit" value="Async with task evaluate" onclick="document.getElementById('testForm').action = 'AsyncWithTaskCalculate'" />
+        <input type="submit" value="Async with tasks" onclick="document.getElementById('testForm').action = 'AsyncWithTaskCalculate'" />
+        <input type="submit" value="Parallel" onclick="document.getElementById('testForm').action = 'ParallelCalculate'" />
         <br />
         <br />
         if (Model.Method != null)
         {
-        <table>
-            <tr>
-                <td colspan="2">Method: </td>
-                <td colspan="2">@Model.Method</td>
-            </tr>
-            <tr>
-                <td colspan="2">Controller thread ID: </td>
-                <td colspan="2">@Model.ControllerStartThreadId</td>
-            </tr>
-            <tr>
-                <td colspan="2">DomainService thread ID: </td>
-                <td colspan="2">@Model.StartThreadId</td>
-            </tr>
-            <tr>
-                <td colspan="5" height="32px"></td>
-            </tr>
-            <tr>
-                <td width="42px">Nr.</td>
-                <td width="212px">Calculator</td>
-                <td width="116px">Result</td>
-                <td width="136px">Elapsed time (ms)</td>
-                <td width="82px">Thread ID</td>
-            </tr>
-            <tr>
-                <td colspan="5" height="12px"></td>
-            </tr>
-            @{ foreach (var item in Model.Items)
-                {
-                    <tr>
-                        <td>@item.Number</td>
-                        <td>@item.Name</td>
-                        <td>@item.Result</td>
-                        <td>@item.MilliSeconds</td>
-                        <td>@item.ThreadId</td>
-                    </tr>
-                } }
-            <tr>
-                <td colspan="5" height="42px"></td>
-            </tr>
-            <tr>
-                <td colspan="2">DomainService thread ID: </td>
-                <td colspan="2">@Model.EndThreadId</td>
-            </tr>
-            <tr>
-                <td colspan="2">Controller thread ID: </td>
-                <td colspan="2">@Model.ControllerEndThreadId</td>
-            </tr>
-            <tr>
-                <td colspan="2">Elapsed time (ms):</td>
-                <td colspan="2">@Model.MilliSeconds</td>
-            </tr>
+            <table>
+                <tr>
+                    <td colspan="2">Method: </td>
+                    <td colspan="4">@Model.Method</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Controller thread ID: </td>
+                    <td colspan="4">@Model.ControllerStartThreadId</td>
+                </tr>
+                <tr>
+                    <td colspan="2">DomainService thread ID: </td>
+                    <td colspan="4">@Model.StartThreadId</td>
+                </tr>
+                <tr>
+                    <td colspan="6" height="32px"></td>
+                </tr>
+                <tr>
+                    <td width="42px">Nr.</td>
+                    <td width="212px">Calculator</td>
+                    <td width="86px">Input</td>
+                    <td width="116px">Output</td>
+                    <td width="136px">Elapsed time (ms)</td>
+                    <td width="82px">Thread ID</td>
+                </tr>
+                <tr>
+                    <td colspan="5" height="12px"></td>
+                </tr>
+                @{ foreach (var item in Model.Items)
+                    {
+                <tr>
+                    <td>@item.Number</td>
+                    <td>@item.Name</td>
+                    <td>@Model.Number</td>
+                    <td>@item.Result</td>
+                    <td>@item.MilliSeconds</td>
+                    <td>@item.ThreadId</td>
+                </tr>
+                    } }
+                <tr>
+                    <td colspan="6" height="42px"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">DomainService thread ID: </td>
+                    <td colspan="4">@Model.EndThreadId</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Controller thread ID: </td>
+                    <td colspan="4">@Model.ControllerEndThreadId</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Elapsed time (ms):</td>
+                    <td colspan="4">@Model.MilliSeconds</td>
+                </tr>
 
-        </table>
+            </table>
         }
     }
 </div>

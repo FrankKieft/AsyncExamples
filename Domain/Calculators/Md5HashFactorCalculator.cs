@@ -8,6 +8,10 @@ namespace AsyncExamples.Domain.Calculators
 {
     public class Md5HashFactorCalculator : Calculator
     {
+        public Md5HashFactorCalculator(int number):base(number)
+        {
+        }
+
         public override void Calculate(int x, CalculationLog log)
         {
             var t = DateTime.Now;
@@ -22,6 +26,7 @@ namespace AsyncExamples.Domain.Calculators
 
             log.Items.Add(new CalculationLogItem
             {
+                Number = Number,
                 Result = y,
                 Name = GetType().Name,
                 MilliSeconds = (DateTime.Now - t).TotalMilliseconds,
